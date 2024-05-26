@@ -55,7 +55,7 @@ scanf("%s",message.mesg_text);
 ```
 
 ## C Program for Message Queue (reader Process) :
-```
+```c
 #include <stdio.h>
 #include <sys/ipc.h>
 #include <sys/msg.h>
