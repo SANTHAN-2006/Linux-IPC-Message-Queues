@@ -37,14 +37,13 @@ struct mesg_buffer {
 int main() 
 { 	key_t key; 
 	int msgid; 
-
-	key = ftok("progfile", 65); 
-
+	key = ftok("progfile", 65);
 
 	msgid = msgget(key, 0666 | IPC_CREAT); 
-	message.mesg_type = 1; 
+	message.mesg_type = 1;
+
 	printf("Write Data : "); 
-scanf("%s",message.mesg_text);
+        scanf("%s",message.mesg_text);
 
 	msgsnd(msgid, &message, sizeof(message), 0); 
 
@@ -74,8 +73,7 @@ int main()
 	msgid = msgget(key, 0666 | IPC_CREAT);
 
 	msgrcv(msgid, &message, sizeof(message), 1, 0);
-	printf("Data Received is : %s \n",
-			message.mesg_text);
+	printf("Data Received is : %s \n", message.mesg_text);
 
 	msgctl(msgid, IPC_RMID, NULL);
 	return 0;
